@@ -1,0 +1,5 @@
+{
+  "remote_agent_runtime_id": "projects/<YOUR_PROJECT_NUMBER>/locations/us-central1/reasoningEngines/<REASONING_ENGINE_ID>",
+  "deployment_target": "agent_runtime",
+  "is_a2a": true
+}

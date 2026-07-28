@@ -1,0 +1,38 @@
+# Deployment Configuration for SDLC Merger & Deployer Agent
+version: "1.0"
+application_name: "evergreen-practice-web"
+
+environments:
+  production:
+    branch: "main"
+    provider: "gcp"
+    project_id: "your-project-id"
+    
+    # Dual Release Targets
+    targets:
+      - name: "gcs-static-website"
+        type: "gcs"
+        bucket_name: "your-project-id-agent-engine-staging"
+        object_path: "evergreen_practice/index.html"
+        url: "https://storage.cloud.google.com/your-project-id-agent-engine-staging/evergreen_practice/index.html"
+        
+      - name: "gce-internal-vm"
+        type: "gce_vm"
+        vpc_network: "demo-internal-vpc"
+        internal_ip: "10.0.0.2"
+        network_attachment: "projects/<YOUR_PROJECT_NUMBER>/regions/us-central1/networkAttachments/agent-psc-attachment"
+        url: "http://10.0.0.2/"  # Port 80
+      
+    build:
+      strategy: "dual_target_deploy"
+      command: "python3 deploy_website.py"
+      required_files:
+        - "index.html"
+        - "style.css"
+        - "app.js"
+        
+    verification:
+      health_check_type: "http_get"
+      url: "http://10.0.0.2/"  # Internal IP Port 80 health check via PSC Interface
+      expected_status_code: 200
+      timeout_seconds: 10

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2A Mission Control | Google Vertex AI Reasoning Engine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Global Header -->
+    <header class="top-header">
+        <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <h1 class="brand-title">A2A Mission Control</h1>
+            <span class="brand-badge">Reasoning Engine V2</span>
+        </div>
+        <div class="header-metrics">
+            <div class="metric-card">
+                <span class="metric-label">Connection Status</span>
+                <span class="metric-value emerald" id="connection-status">● Live Stream</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Active Jira Ticket</span>
+                <span class="metric-value cyan" id="active-ticket">SCRUM-42</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Tokens Consumed</span>
+                <span class="metric-value amber" id="token-counter">0</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-label">Atlassian OAuth V6</span>
+                <span class="metric-value emerald" id="oauth-status">✓ Verified</span>
+            </div>
+        </div>
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('topology')">
+                <span>🌐</span> Workflow Topology
+            </button>
+            <button class="tab-btn" onclick="switchTab('inspector')">
+                <span>🔍</span> Deep Inspection & Diffs
+            </button>
+            <button class="tab-btn" onclick="switchTab('sandbox')">
+                <span>🧪</span> Interactive Sandbox
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="main-container">
+        <!-- TAB 1: LIVE WORKFLOW TOPOLOGY -->
+        <section id="tab-topology" class="tab-content topology-layout active">
+            <div class="glass node-canvas-section">
+                <div class="section-header">
+                    <div class="section-title"><span>📡</span> Multi-Agent Execution Graph & Routing Canopy</div>
+                    <div class="canvas-controls">
+                        <button class="btn-small" onclick="triggerTestSimulation()">⚡ Test Pipeline Run</button>
+                        <button class="btn-small" onclick="resetCanvas()">🔄 Reset Status</button>
+                    </div>
+                </div>
+                <div class="node-stage">
+                    <svg class="connector-svg" id="topology-svg">
+                        <!-- Connecting lines generated via JS to adapt to positions -->
+                    </svg>
+                    <div class="node-network" id="node-network">
+                        <!-- Column 1: Orchestrator Router -->
+                        <div class="node-col">
+                            <div class="agent-node" id="node-orch">
+                                <div class="node-icon orch">🤖</div>
+                                <div class="node-name">SDLC Orchestrator</div>
+                                <div class="node-role">Root Reasoning Router</div>
+                                <div class="node-status-bar">
+                                    <span>Status</span>
+                                    <div class="status-indicator"><span class="dot cyan"></span> <span id="status-orch">Idle</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column 2: Specialized Domain Agents -->
+                        <div class="node-col">
+                            <div class="agent-node" id="node-jira">
+                                <div class="node-icon jira">🔷</div>
+                                <div class="node-name">Jira MCP Connector</div>
+                                <div class="node-role">Atlassian OAuth Cloud V6</div>
+                                <div class="node-status-bar">
+                                    <span>Status</span>
+                                    <div class="status-indicator"><span class="dot amber"></span> <span id="status-jira">Ready</span></div>
+                                </div>
+                            </div>
+                            <div class="agent-node" id="node-eng">
+                                <div class="node-icon eng">⚙️</div>
+                                <div class="node-name">Engineer Agent</div>
+                                <div class="node-role">Git Patch & Code Creator</div>
+                                <div class="node-status-bar">
+                                    <span>Status</span>
+                                    <div class="status-indicator"><span class="dot green"></span> <span id="status-eng">Ready</span></div>
+                                </div>
+                            </div>
+                            <div class="agent-node" id="node-test">
+                                <div class="node-icon test">🧪</div>
+                                <div class="node-name">Tester Agent</div>
+                                <div class="node-role">PyTest Suite Auditor</div>
+                                <div class="node-status-bar">
+                                    <span>Status</span>
+                                    <div class="status-indicator"><span class="dot"></span> <span id="status-test">Ready</span></div>
+                                </div>
+                            </div>
+                            <div class="agent-node" id="node-merger">
+                                <div class="node-icon merger">🚀</div>
+                                <div class="node-name">Merger & Deployer</div>
+                                <div class="node-role">Dual GCS & GCE Release</div>
+                                <div class="node-status-bar">
+                                    <span>Status</span>
+                                    <div class="status-indicator"><span class="dot purple"></span> <span id="status-merger">Ready</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Live Stream Log -->
+            <div class="glass event-stream-section">
+                <div class="section-header">
+                    <div class="section-title"><span>📜</span> Real-Time A2A Telemetry & Event Stream</div>
+                    <button class="btn-small" onclick="clearLogs()">Clear Log</button>
+                </div>
+                <div class="stream-log" id="stream-log">
+                    <!-- Dynamic Log Items Inserted Here -->
+                    <div class="log-entry">
+                        <span class="log-time">System</span>
+                        <span class="log-badge badge-init">INITIALIZED</span>
+                        <span class="log-source">Server Event Broker</span>
+                        <span class="log-arrow">→</span>
+                        <span class="log-msg">Listening for synchronous and streaming A2A agent loop events...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: DEEP INSPECTION & DIFF VERIFICATION -->
+        <section id="tab-inspector" class="tab-content inspector-layout">
+            <div class="glass timeline-col">
+                <div class="section-header">
+                    <div class="section-title"><span>🔄</span> Conversational Handoff Thread</div>
+                </div>
+                <div class="timeline-list" id="timeline-list">
+                    <!-- Dynamic step cards populated via JS -->
+                    <div class="timeline-card selected" id="default-inspect-card" onclick="selectCard(this, defaultInspectData)">
+                        <div class="card-top">
+                            <span>14:32:18 GMT-5</span>
+                            <span style="color: var(--emerald-glow); font-weight: 700;">GREEN - Verified</span>
+                        </div>
+                        <div class="card-title"><span>🤖</span> Orchestrator → Engineer Agent</div>
+                        <div class="card-summary">Task #405: Implement dynamic schema validation and error handling on index.html and app.py</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-col">
+                <div class="glass diff-box">
+                    <div class="section-header">
+                        <div class="section-title"><span>📦</span> Live Git Diff Verification (sdlc-engineer)</div>
+                        <span class="brand-badge" id="inspect-branch">Branch: fix/scrum-42-validation</span>
+                    </div>
+                    <pre class="diff-viewer" id="inspect-diff-viewer">
+<span class="diff-hdr">diff --git a/src/app.py b/src/app.py</span>
+<span class="diff-hdr">index 8f3b2a..a1c4e9 100644</span>
+--- a/src/app.py
++++ b/src/app.py
+@@ -45,7 +45,7 @@ def process_user_request(request):
+<span class="diff-sub">-    logger.warn("Processing user transaction without validation")</span>
+<span class="diff-sub">-    return execute_direct(request.payload)</span>
+<span class="diff-add">+    logger.info("Validating user request payload against schema")</span>
+<span class="diff-add">+    if not validate_schema(request.payload):</span>
+<span class="diff-add">+        raise ValueError("Invalid request structure in SCRUM-42")</span>
+<span class="diff-add">+    return execute_secure(request.payload)</span></pre>
+                </div>
+
+                <div class="glass terminal-box">
+                    <div class="section-header">
+                        <div class="section-title"><span>🖥️</span> PyTest Verification Terminal (sdlc-tester)</div>
+                        <span class="brand-badge" style="background: rgba(16, 185, 129, 0.2); border-color: var(--emerald-glow); color: var(--emerald-glow);">PASSED [100%]</span>
+                    </div>
+                    <div class="terminal-viewer" id="inspect-term-viewer">
+(venv) root@sdlc-tester:~# pytest tests/test_app.py --verbose
+============================= test session starts ==============================
+platform darwin -- Python 3.11.8, pytest-8.1.1
+collecting ... 14 items collected
+
+tests/test_app.py::test_user_request_validation <span class="term-pass">PASSED [ 28%]</span>
+tests/test_app.py::test_schema_rejection <span class="term-pass">PASSED [ 57%]</span>
+tests/test_app.py::test_execute_secure_pipeline <span class="term-pass">PASSED [ 85%]</span>
+tests/test_integration.py::test_full_lifecycle <span class="term-pass">PASSED [100%]</span>
+
+============================== <span class="term-pass">14 passed in 1.42s</span> ==============================
+status: Success (Verified clean git patch)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: INTERACTIVE SANDBOX & REPLAY HARNESS -->
+        <section id="tab-sandbox" class="tab-content sandbox-layout">
+            <div class="glass sandbox-panel">
+                <div class="section-header">
+                    <div class="section-title"><span>🧪</span> Interactive A2A Execution & Debugging Sandbox</div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.5;">
+                    Trigger synthetic bug-fix pipeline runs or inject real Jira ticket instructions directly into the A2A multi-agent network without going through the Gemini Enterprise chat interface. Watch real-time token traffic across the Topology Canvas as agents iterate.
+                </p>
+                
+                <div class="form-group">
+                    <label class="form-label">Target Jira Issue Key / Ticket ID</label>
+                    <input type="text" id="sandbox-ticket-id" class="form-input" value="SCRUM-42" placeholder="e.g. SCRUM-10">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Bug Report / Execution Directive</label>
+                    <textarea id="sandbox-desc" class="form-textarea" rows="4" placeholder="Describe the required code modification or verification steps...">Null pointer exception occurred in user authentication module during high-concurrency token rotation. Implement thread-safe OAuth state caching.</textarea>
+                </div>
+
+                <div style="display: flex; gap: 16px; align-items: center; margin-top: 10px;">
+                    <button class="btn-primary" onclick="launchSandboxExecution()">
+                        <span>⚡</span> Execute A2A Pipeline Loop
+                    </button>
+                    <span id="sandbox-feedback" style="font-size: 13px; color: var(--cyan-glow); font-weight: 600;"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

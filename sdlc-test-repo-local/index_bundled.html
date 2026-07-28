@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evergreen Family Practice provides compassionate, comprehensive primary care and pediatric medical services for your entire family.">
+    <title>Evergreen Family Practice | Compassionate Family Medical Care</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* Custom Design Tokens */
+:root {
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Elegant Medical Color Palette */
+    --color-primary: hsl(162, 75%, 26%);       /* Rich Evergreen */
+    --color-primary-light: hsl(162, 60%, 94%); /* Pastel Mint */
+    --color-primary-dark: hsl(162, 80%, 15%);  /* Deep Forest Green */
+    --color-accent: hsl(43, 96%, 56%);         /* warm Amber Gold */
+    --color-text-dark: hsl(210, 24%, 16%);     /* Dark Slate */
+    --color-text-muted: hsl(210, 16%, 46%);    /* Slate Muted */
+    --color-bg-light: hsl(210, 40%, 98%);      /* Soft White */
+    --color-bg-white: hsl(0, 0%, 100%);
+    --color-border: hsl(210, 20%, 90%);
+    --color-danger: hsl(0, 72%, 51%);          /* medical Red */
+    
+    /* Shadows & Transitions */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 25px -5px rgba(10, 50, 40, 0.08), 0 8px 16px -6px rgba(10, 50, 40, 0.04);
+    --shadow-lg: 0 20px 40px -10px rgba(10, 50, 40, 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+}
+
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+h1 { font-size: 3.25rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: none;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22, 102, 78, 0.25);
+}
+
+.btn-secondary {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 16px 36px;
+    font-size: 1.05rem;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Header & Nav */
+.header {
+    background-color: var(--color-bg-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--color-primary-dark);
+}
+
+.accent-text {
+    color: var(--color-primary);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 550;
+    font-family: var(--font-heading);
+    transition: var(--transition-smooth);
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    background: radial-gradient(circle at 80% 20%, hsl(162, 50%, 96%) 0%, var(--color-bg-light) 100%);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    padding: 6px 16px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-visual {
+    position: relative;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-md);
+    width: 280px;
+    position: absolute;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-border);
+}
+
+.visual-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.visual-card-1 {
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+}
+
+.visual-card-2 {
+    bottom: 40px;
+    right: 20px;
+    z-index: 1;
+}
+
+.visual-card-3 {
+    top: 150px;
+    right: 60px;
+    z-index: 3;
+    width: 220px;
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    color: var(--color-bg-white);
+    border: none;
+}
+
+.visual-card-3 h3, .visual-card-3 p {
+    color: var(--color-bg-white);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.visual-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.visual-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* Sections Global */
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 60px auto;
+}
+
+.section-title {
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+}
+
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-md);
+    padding: 40px 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    transition: var(--transition-smooth);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* Doctors */
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.doctor-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.doctor-photo {
+    height: 250px;
+    background-color: var(--color-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-placeholder {
+    font-size: 5rem;
+}
+
+.doctor-info {
+    padding: 32px;
+}
+
+.doctor-specialty {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.doctor-info p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* Contact */
+.contact-card-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.contact-info-panel {
+    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    padding: 60px;
+    color: var(--color-bg-white);
+}
+
+.contact-info-panel h2 {
+    color: var(--color-bg-white);
+    margin-bottom: 16px;
+}
+
+.contact-info-panel p {
+    color: var(--color-primary-light);
+    margin-bottom: 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-detail-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.detail-icon {
+    font-size: 1.5rem;
+}
+
+.contact-detail-item h4 {
+    color: var(--color-bg-white);
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.contact-detail-item p {
+    color: var(--color-primary-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.contact-form-panel {
+    padding: 60px;
+    position: relative;
+}
+
+/* Forms styling */
+.form-group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--color-primary-dark);
+}
+
+input, textarea, select {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    transition: var(--transition-smooth);
+    width: 100%;
+    outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-white);
+    box-shadow: 0 0 0 3px rgba(22, 102, 78, 0.1);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.error-msg {
+    color: var(--color-danger);
+    font-size: 0.8rem;
+    margin-top: 6px;
+    display: none;
+    font-weight: 500;
+}
+
+.success-message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+/* Modal styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 30, 24, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.open {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--color-bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 550px;
+    padding: 48px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-backdrop.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: var(--transition-smooth);
+}
+
+.modal-close:hover {
+    color: var(--color-primary-dark);
+}
+
+.modal-header {
+    margin-bottom: 30px;
+}
+
+.modal-header h2 {
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    color: var(--color-text-muted);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-bg-white);
+    padding: 40px 0;
+    border-top: 1px solid var(--color-primary);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: var(--color-primary-light);
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-visual {
+        height: 320px;
+    }
+    
+    .contact-card-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info-panel, .contact-form-panel {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 16px 24px;
+        gap: 16px;
+    }
+    
+    .nav-menu {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+    }
+    
+    .modal-content {
+        padding: 30px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo" id="nav-logo">
+                <span class="logo-icon">➕</span>
+                <span class="logo-text">Evergreen <span class="accent-text">Family Practice</span></span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#doctors" class="nav-link">Our Doctors</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="btn btn-primary" id="btn-book-nav">Book Appointment</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="badge">Welcoming New Patients</span>
+                    <h1 class="hero-title">Compassionate healthcare for your entire family</h1>
+                    <p class="hero-description">We provide comprehensive primary care, pediatric, and wellness services tailored to your unique healthcare journey. Your health is our family's priority.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" id="btn-book-hero">Book Appointment</button>
+                        <a href="#services" class="btn btn-secondary btn-lg">Explore Services</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-card visual-card-1">
+                        <div class="card-icon">🏥</div>
+                        <h3>Modern Practice</h3>
+                        <p>State of the art wellness facilities</p>
+                    </div>
+                    <div class="visual-card visual-card-2">
+                        <div class="card-icon">👩‍⚕️</div>
+                        <h3>Trusted Staff</h3>
+                        <p>Over 25 years of medical expertise</p>
+                    </div>
+                    <div class="visual-card visual-card-3">
+                        <div class="card-icon">⭐</div>
+                        <h3>Top Rated</h3>
+                        <p>5-star family care reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Comprehensive Medical Services</h2>
+                    <p class="section-subtitle">From preventative wellness to specialized chronic care, we support you at every stage of life.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" id="service-pediatrics">
+                        <div class="service-icon">👶</div>
+                        <h3>Pediatric Care</h3>
+                        <p>Well-child visits, developmental screenings, immunizations, and school physicals in a welcoming, warm environment.</p>
+                    </div>
+                    <div class="service-card" id="service-preventative">
+                        <div class="service-icon">🍎</div>
+                        <h3>Preventative Wellness</h3>
+                        <p>Annual checkups, nutritional guidance, blood pressure control, health risk evaluations, and diagnostic labs.</p>
+                    </div>
+                    <div class="service-card" id="service-chronic">
+                        <div class="service-icon">🧬</div>
+                        <h3>Chronic Management</h3>
+                        <p>Proactive care plans and remote support for diabetes, hypertension, asthma, thyroid disorders, and heart health.</p>
+                    </div>
+                    <div class="service-card" id="service-womens">
+                        <div class="service-icon">🌸</div>
+                        <h3>Women's Health</h3>
+                        <p>Comprehensive gynecological exams, family planning consultations, prenatal support, and menopause guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section id="doctors" class="doctors section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Meet Our Primary Care Doctors</h2>
+                    <p class="section-subtitle">Dedicated board-certified practitioners passionate about patient advocacy and healthy families.</p>
+                </div>
+                <div class="doctors-grid">
+                    <div class="doctor-card" id="doctor-sarah">
+                        <div class="doctor-photo">
+                            <span class="photo-placeholder">👩‍⚕️</span>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>Dr. Sarah Knight, MD</h3>
+                            <span class="doctor-specialty">Family Medicine</span>
+                            <p>Dr. Knight specializes in adult primary care, preventative women's wellness, and lifestyle therapeutics.</p>
+                        </div>
+                    </div>
+                    <div class="doctor-card" id="doctor-marcus">
+                        <div class="doctor-photo">
+                            <span class="photo-placeholder">👨‍⚕️</span>
+                        </div>
+                        <div class="doctor-info">
+                            <h3>Dr. Marcus Vance, DO</h3>
+                            <span class="doctor-specialty">Pediatrics & Family Care</span>
+                            <p>Dr. Vance focuses on child development, acute pediatric care, and adolescent behavioral counseling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <div class="contact-card-container">
+                    <div class="contact-info-panel">
+                        <h2>Get In Touch</h2>
+                        <p>Have questions or need assistance? Reach out to our dedicated front desk staff.</p>
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <span class="detail-icon">📍</span>
+                                <div>
+                                    <h4>Our Address</h4>
+                                    <p>1200 Evergreen Parkway, Suite A, Seattle, WA 98101</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <span class="detail-icon">📞</span>
+                                <div>
+                                    <h4>Phone Number</h4>
+                                    <p>(206) 555-0143</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <span class="detail-icon">⏰</span>
+                                <div>
+                                    <h4>Hours of Operation</h4>
+                                    <p>Monday – Friday: 8:00 AM – 5:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-panel">
+                        <form id="contact-form" novalidate>
+                            <h3>Send Us a Message</h3>
+                            <div class="form-group">
+                                <label for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" name="name" required placeholder="John Doe">
+                                <span class="error-msg" id="name-error">Please enter your name.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" required placeholder="john@example.com">
+                                <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-msg">Your Message</label>
+                                <textarea id="contact-msg" name="message" required placeholder="How can we help you today?"></textarea>
+                                <span class="error-msg" id="msg-error">Please enter your message.</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" id="btn-contact-submit">Submit Message</button>
+                        </form>
+                        <div class="success-message" id="contact-success">
+                            <div class="success-icon">✉️</div>
+                            <h3>Message Sent!</h3>
+                            <p>Thank you. A member of our staff will call or email you within 24 business hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Evergreen Family Practice. All rights reserved.</p>
+            <p>Providing quality primary care services to our local community.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal-backdrop" id="booking-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="btn-modal-close">&times;</button>
+            <div class="modal-header">
+                <h2>Request an Appointment</h2>
+                <p>Submit your preferred times and our scheduler will contact you shortly.</p>
+            </div>
+            <form id="booking-form" novalidate>
+                <div class="form-group">
+                    <label for="book-name">Patient's Full Name</label>
+                    <input type="text" id="book-name" required placeholder="Jane Doe">
+                    <span class="error-msg" id="book-name-error">Please enter the patient's name.</span>
+                </div>
+                <div class="form-group">
+                    <label for="book-phone">Phone Number</label>
+                    <input type="tel" id="book-phone" required placeholder="(206) 555-0100">
+                    <span class="error-msg" id="book-phone-error">Please enter a valid phone number.</span>
+                </div>
+                <div class="form-group">
+                    <label for="book-doctor">Select Primary Care Doctor</label>
+                    <select id="book-doctor" required>
+                        <option value="">-- Select practitioner --</option>
+                        <option value="bennett">Dr. Sarah Knight, MD</option>
+                        <option value="vance">Dr. Marcus Vance, DO</option>
+                        <option value="any">First Available Doctor</option>
+                    </select>
+                    <span class="error-msg" id="book-doctor-error">Please select a physician.</span>
+                </div>
+                <div class="form-group">
+                    <label for="book-date">Preferred Date</label>
+                    <input type="date" id="book-date" required>
+                    <span class="error-msg" id="book-date-error">Please select a valid future date.</span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="btn-book-submit">Submit Request</button>
+            </form>
+            <div class="success-message" id="book-success">
+                <div class="success-icon">✔️</div>
+                <h3>Appointment Requested!</h3>
+                <p>We've received your request for an appointment. We will call you within 1-2 hours to confirm your time slot.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Booking Modal State Management ---
+    const bookingModal = document.getElementById('booking-modal');
+    const btnBookNav = document.getElementById('btn-book-nav');
+    const btnBookHero = document.getElementById('btn-book-hero');
+    const btnModalClose = document.getElementById('btn-modal-close');
+
+    const openModal = () => {
+        bookingModal.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+    };
+
+    const closeModal = () => {
+        bookingModal.classList.remove('open');
+        document.body.style.overflow = ''; // Unlock scrolling
+        resetForm(bookingForm, bookErrorFields);
+    };
+
+    if (btnBookNav) btnBookNav.addEventListener('click', openModal);
+    if (btnBookHero) btnBookHero.addEventListener('click', openModal);
+    if (btnModalClose) btnModalClose.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    bookingModal.addEventListener('click', (e) => {
+        if (e.target === bookingModal) {
+            closeModal();
+        }
+    });
+
+    // --- Helper function to reset forms ---
+    const resetForm = (form, errorMap) => {
+        form.reset();
+        Object.values(errorMap).forEach(el => {
+            if (el) el.style.display = 'none';
+        });
+        const successMessage = form.nextElementSibling;
+        if (successMessage && successMessage.classList.contains('success-message')) {
+            successMessage.style.display = 'none';
+        }
+        form.style.display = 'block';
+    };
+
+    // --- Booking Form Validation ---
+    const bookingForm = document.getElementById('booking-form');
+    const bookSuccess = document.getElementById('book-success');
+    const bookErrorFields = {
+        name: document.getElementById('book-name-error'),
+        phone: document.getElementById('book-phone-error'),
+        doctor: document.getElementById('book-doctor-error'),
+        date: document.getElementById('book-date-error')
+    };
+
+    bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        // Reset errors
+        Object.values(bookErrorFields).forEach(el => {
+            if (el) el.style.display = 'none';
+        });
+
+        // Validate Name
+        const nameVal = document.getElementById('book-name').value.trim();
+        if (!nameVal) {
+            bookErrorFields.name.style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Phone (simple format validation)
+        const phoneVal = document.getElementById('book-phone').value.trim();
+        const phonePattern = /^\+?[0-9\s\-()]{7,15}$/;
+        if (!phoneVal || !phonePattern.test(phoneVal)) {
+            bookErrorFields.phone.style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Doctor
+        const doctorVal = document.getElementById('book-doctor').value;
+        if (!doctorVal) {
+            bookErrorFields.doctor.style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Date (must be in the future)
+        const dateVal = document.getElementById('book-date').value;
+        const selectedDate = new Date(dateVal);
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        
+        if (!dateVal || selectedDate < today) {
+            bookErrorFields.date.style.display = 'block';
+            isValid = false;
+        }
+
+        if (isValid) {
+            console.log('Booking request submitted:', { nameVal, phoneVal, doctorVal, dateVal });
+            
+            // Show Success screen inside modal
+            bookingForm.style.display = 'none';
+            bookSuccess.style.display = 'flex';
+            
+            // Auto close modal after 3 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 3500);
+        }
+    });
+
+    // --- Contact Form Validation ---
+    const contactForm = document.getElementById('contact-form');
+    const contactSuccess = document.getElementById('contact-success');
+    const contactErrorFields = {
+        name: document.getElementById('name-error'),
+        email: document.getElementById('email-error'),
+        msg: document.getElementById('msg-error')
+    };
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        // Reset errors
+        Object.values(contactErrorFields).forEach(el => {
+            if (el) el.style.display = 'none';
+        });
+
+        // Validate Name
+        const nameVal = document.getElementById('contact-name').value.trim();
+        if (!nameVal) {
+            contactErrorFields.name.style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Email
+        const emailVal = document.getElementById('contact-email').value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVal || !emailPattern.test(emailVal)) {
+            contactErrorFields.email.style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate Message
+        const msgVal = document.getElementById('contact-msg').value.trim();
+        if (!msgVal) {
+            contactErrorFields.msg.style.display = 'block';
+            isValid = false;
+        }
+
+        if (isValid) {
+            console.log('Contact message submitted:', { nameVal, emailVal, msgVal });
+            
+            // Show success screen in place of form
+            contactForm.style.display = 'none';
+            contactSuccess.style.display = 'flex';
+        }
+    });
+});
+
+</script>
+</body>
+</html>
